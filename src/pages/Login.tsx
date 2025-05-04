@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import {
@@ -27,7 +27,7 @@ const Login = () => {
   const [activeTab, setActiveTab] = useState<
     "student" | "admin" | "superadmin"
   >("student");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // Redirect if already authenticated
   if (isAuthenticated) {

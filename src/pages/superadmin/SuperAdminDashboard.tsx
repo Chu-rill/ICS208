@@ -45,12 +45,12 @@ const SuperAdminDashboard = () => {
   }).length;
 
   // Calculate pending requests per department
-  const pendingByDepartment = DEPARTMENTS.map((dept) => {
-    const count = pendingRequests.filter(
-      (req) => req.department === dept
-    ).length;
-    return { name: dept, value: count };
-  });
+  // const pendingByDepartment = DEPARTMENTS.map((dept) => {
+  //   const count = pendingRequests.filter(
+  //     (req) => req.department === dept
+  //   ).length;
+  //   return { name: dept, value: count };
+  // });
 
   // Calculate cleared requests per department
   const clearedByDepartment = DEPARTMENTS.map((dept) => {
