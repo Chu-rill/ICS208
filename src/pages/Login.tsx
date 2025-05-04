@@ -335,7 +335,7 @@ const Login = () => {
               <span className="block mb-1">
                 Student:{" "}
                 <span className="font-medium text-blue-600">
-                  123456 / password
+                  123456 or 789012 or 345678 or 901234/ password
                 </span>
               </span>
               <span className="block mb-1">
