@@ -1,4 +1,4 @@
-import { useAuth } from "@/contexts/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import {
   LayoutDashboard,
   List,
@@ -7,7 +7,7 @@ import {
   BarChart4,
   ChevronRight,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/util";
 import { NavLink } from "react-router-dom";
 
 interface SidebarProps {

@@ -1,5 +1,5 @@
 import { ReactNode, useState } from "react";
-import { useAuth } from "@/contexts/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 import { Navigate } from "react-router-dom";
