@@ -110,101 +110,212 @@ const SuperAdminDepartments = () => {
         </div>
 
         {/* Department Details Tabs */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Department Details</CardTitle>
+        <Card className="border-0 shadow-lg overflow-hidden">
+          <div className="bg-gradient-to-r from-blue-500 to-blue-700 p-1"></div>
+          <CardHeader className="bg-white pb-2">
+            <CardTitle className="text-2xl font-bold text-gray-800 flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 mr-2 text-blue-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                />
+              </svg>
+              Department Details
+            </CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="px-0 py-0">
             <Tabs defaultValue={DEPARTMENTS[0]}>
-              <TabsList className="grid grid-cols-3 md:grid-cols-6">
+              <TabsList className="grid grid-cols-3 md:grid-cols-6 bg-blue-50">
                 {DEPARTMENTS.map((dept) => (
-                  <TabsTrigger key={dept} value={dept}>
+                  <TabsTrigger
+                    key={dept}
+                    value={dept}
+                    className="text-blue-700"
+                  >
                     {dept}
                   </TabsTrigger>
                 ))}
               </TabsList>
 
               {DEPARTMENTS.map((dept) => (
-                <TabsContent key={dept} value={dept}>
-                  <div className="space-y-4">
-                    <h3 className="text-lg font-medium">
+                <TabsContent key={dept} value={dept} className="px-6 py-4">
+                  <div className="space-y-6">
+                    <h3 className="text-xl font-semibold text-blue-800 border-b border-blue-100 pb-2">
                       {dept} Clearance Details
                     </h3>
 
                     {/* Pending Requests */}
-                    <div>
-                      <h4 className="text-sm font-medium mb-2">
+                    <div className="bg-white rounded-lg border border-gray-100 shadow-sm p-4">
+                      <h4 className="text-md font-semibold mb-3 text-gray-700 flex items-center">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5 mr-2 text-amber-500"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
                         Pending Requests
                       </h4>
                       {pendingRequests.filter((req) => req.department === dept)
                         .length === 0 ? (
-                        <p className="text-sm text-muted-foreground">
-                          No pending requests
-                        </p>
+                        <div className="bg-gray-50 rounded-md p-4 text-center">
+                          <p className="text-sm text-gray-500 flex items-center justify-center">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="h-5 w-5 mr-1 text-gray-400"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                              />
+                            </svg>
+                            No pending requests
+                          </p>
+                        </div>
                       ) : (
-                        <Table>
-                          <TableHeader>
-                            <TableRow>
-                              <TableHead>Student Name</TableHead>
-                              <TableHead>Matric Number</TableHead>
-                              <TableHead>Request Date</TableHead>
-                            </TableRow>
-                          </TableHeader>
-                          <TableBody>
-                            {pendingRequests
-                              .filter((req) => req.department === dept)
-                              .map((req) => (
-                                <TableRow key={req.id}>
-                                  <TableCell>{req.studentName}</TableCell>
-                                  <TableCell>{req.matricNumber}</TableCell>
-                                  <TableCell>
-                                    {new Date(
-                                      req.dateRequested
-                                    ).toLocaleDateString()}
-                                  </TableCell>
-                                </TableRow>
-                              ))}
-                          </TableBody>
-                        </Table>
+                        <div className="overflow-x-auto">
+                          <Table>
+                            <TableHeader className="bg-blue-50">
+                              <TableRow>
+                                <TableHead className="font-semibold text-blue-900">
+                                  Student Name
+                                </TableHead>
+                                <TableHead className="font-semibold text-blue-900">
+                                  Matric Number
+                                </TableHead>
+                                <TableHead className="font-semibold text-blue-900">
+                                  Request Date
+                                </TableHead>
+                              </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                              {pendingRequests
+                                .filter((req) => req.department === dept)
+                                .map((req) => (
+                                  <TableRow
+                                    key={req.id}
+                                    className="hover:bg-blue-50 transition-colors"
+                                  >
+                                    <TableCell className="font-medium">
+                                      {req.studentName}
+                                    </TableCell>
+                                    <TableCell>{req.matricNumber}</TableCell>
+                                    <TableCell>
+                                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">
+                                        {new Date(
+                                          req.dateRequested
+                                        ).toLocaleDateString()}
+                                      </span>
+                                    </TableCell>
+                                  </TableRow>
+                                ))}
+                            </TableBody>
+                          </Table>
+                        </div>
                       )}
                     </div>
 
                     {/* Cleared Students */}
-                    <div>
-                      <h4 className="text-sm font-medium mb-2">
+                    <div className="bg-white rounded-lg border border-gray-100 shadow-sm p-4">
+                      <h4 className="text-md font-semibold mb-3 text-gray-700 flex items-center">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5 mr-2 text-green-500"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
                         Cleared Students
                       </h4>
                       {clearedRequests.filter((req) => req.department === dept)
                         .length === 0 ? (
-                        <p className="text-sm text-muted-foreground">
-                          No cleared students
-                        </p>
+                        <div className="bg-gray-50 rounded-md p-4 text-center">
+                          <p className="text-sm text-gray-500 flex items-center justify-center">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="h-5 w-5 mr-1 text-gray-400"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                              />
+                            </svg>
+                            No cleared students
+                          </p>
+                        </div>
                       ) : (
-                        <Table>
-                          <TableHeader>
-                            <TableRow>
-                              <TableHead>Student Name</TableHead>
-                              <TableHead>Matric Number</TableHead>
-                              <TableHead>Cleared Date</TableHead>
-                            </TableRow>
-                          </TableHeader>
-                          <TableBody>
-                            {clearedRequests
-                              .filter((req) => req.department === dept)
-                              .map((req) => (
-                                <TableRow key={req.id}>
-                                  <TableCell>{req.studentName}</TableCell>
-                                  <TableCell>{req.matricNumber}</TableCell>
-                                  <TableCell>
-                                    {req.dateUpdated &&
-                                      new Date(
-                                        req.dateUpdated
-                                      ).toLocaleDateString()}
-                                  </TableCell>
-                                </TableRow>
-                              ))}
-                          </TableBody>
-                        </Table>
+                        <div className="overflow-x-auto">
+                          <Table>
+                            <TableHeader className="bg-blue-50">
+                              <TableRow>
+                                <TableHead className="font-semibold text-blue-900">
+                                  Student Name
+                                </TableHead>
+                                <TableHead className="font-semibold text-blue-900">
+                                  Matric Number
+                                </TableHead>
+                                <TableHead className="font-semibold text-blue-900">
+                                  Cleared Date
+                                </TableHead>
+                              </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                              {clearedRequests
+                                .filter((req) => req.department === dept)
+                                .map((req) => (
+                                  <TableRow
+                                    key={req.id}
+                                    className="hover:bg-blue-50 transition-colors"
+                                  >
+                                    <TableCell className="font-medium">
+                                      {req.studentName}
+                                    </TableCell>
+                                    <TableCell>{req.matricNumber}</TableCell>
+                                    <TableCell>
+                                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                        {req.dateUpdated &&
+                                          new Date(
+                                            req.dateUpdated
+                                          ).toLocaleDateString()}
+                                      </span>
+                                    </TableCell>
+                                  </TableRow>
+                                ))}
+                            </TableBody>
+                          </Table>
+                        </div>
                       )}
                     </div>
                   </div>
