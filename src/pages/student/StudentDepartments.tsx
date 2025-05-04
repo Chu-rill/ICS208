@@ -42,9 +42,13 @@ const StudentDepartments = () => {
       case "pending":
         return <Badge className="bg-amber-600">Pending</Badge>;
       case "rejected":
-        return <Badge variant="destructive">Rejected</Badge>;
+        return (
+          <Badge className="bg-red-600" variant="destructive">
+            Rejected
+          </Badge>
+        );
       default:
-        return <Badge variant="outline">Not Requested</Badge>;
+        return <Badge className="bg-blue-400">Not Requested</Badge>;
     }
   };
 
