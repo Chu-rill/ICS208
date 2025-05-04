@@ -65,6 +65,30 @@ const generateSampleNotifications = (): Notification[] => {
       date: new Date(Date.now() - 30 * 60 * 1000), // 30 minutes ago
       type: "info",
     },
+    {
+      id: "notif4",
+      userId: "3", // Alice Smith
+      message: "Your Hostel clearance request is still pending",
+      isRead: false,
+      date: new Date(Date.now() - 12 * 60 * 60 * 1000), // 12 hours ago
+      type: "warning",
+    },
+    {
+      id: "notif5",
+      userId: "4", // Bob Johnson
+      message: "Your Bursary clearance request has been approved",
+      isRead: true,
+      date: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000), // 1 day ago
+      type: "success",
+    },
+    {
+      id: "notif6",
+      userId: "2", // Library Admin
+      message: "John Student has returned the books. You can approve",
+      isRead: false,
+      date: new Date(Date.now() - 45 * 60 * 1000), // 45 minutes ago
+      type: "info",
+    },
   ];
 };
 

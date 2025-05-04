@@ -1,7 +1,7 @@
 import { useAuth } from "../../context/AuthContext";
 import { useNotification } from "../../context/NotificationContext";
 import { Bell, LogOut, Menu } from "lucide-react";
-import { useState } from "react";
+// import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   DropdownMenu,

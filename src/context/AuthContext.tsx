@@ -44,6 +44,27 @@ const MOCK_USERS = [
     name: "Super Admin",
     role: "superadmin" as UserRole,
   },
+  {
+    id: "5",
+    matricNumber: "789012",
+    password: "password",
+    name: "Emily Davis",
+    role: "student" as UserRole,
+  },
+  {
+    id: "6",
+    matricNumber: "345678",
+    password: "password",
+    name: "Michael Brown",
+    role: "student" as UserRole,
+  },
+  {
+    id: "7",
+    matricNumber: "901234",
+    password: "password",
+    name: "Sarah Wilson",
+    role: "student" as UserRole,
+  },
 ];
 
 interface AuthContextType {
