@@ -67,7 +67,7 @@ export function AppSidebar() {
   ];
 
   return (
-    <Sidebar className=" absolute top-0 left-0 z-50 w-64 h-screen bg-white border-r border-gray-200 shadow-lg">
+    <Sidebar className=" w-64 h-screen bg-white border-r border-gray-200 shadow-lg">
       <SidebarHeader className="flex items-center gap-2 px-4">
         <div className="flex items-center justify-center w-8 h-8 rounded-full bg-[#D11B2F]">
           <Heart size={16} className="text-white" />
