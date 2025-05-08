@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap");
 
 @import "tailwindcss";
-
+/* 
 @layer base {
   :root {
     --background: 210 40% 98%;
@@ -81,4 +81,4 @@
 
 .security-icon {
   @apply text-secondary w-10 h-10;
-}
+} */
