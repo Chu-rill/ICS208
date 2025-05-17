@@ -1,7 +1,7 @@
 import {
   Activity,
   CalendarCheck,
-  Droplets,
+  // Droplets,
   HeartHandshake,
   Users,
 } from "lucide-react";
