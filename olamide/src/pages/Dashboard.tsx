@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import { Separator } from "../components/ui/separator";
 import {
@@ -10,7 +10,7 @@ import {
 import {
   Shield,
   Bell,
-  Camera,
+  // Camera,
   Users,
   CreditCard,
   Smartphone,
