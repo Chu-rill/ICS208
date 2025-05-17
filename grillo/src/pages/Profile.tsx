@@ -9,9 +9,21 @@ import { Button } from "../components/ui/button";
 import { Calendar } from "lucide-react";
 import { Badge } from "../components/ui/badge";
 
+// Define types for the bloodType values
+type BloodType = "A+" | "B-" | "O+" | "AB+" | "O-" | "A-" | "B+" | "AB-";
+
+interface User {
+  name: string;
+  email: string;
+  avatarUrl: string;
+  bloodType: BloodType;
+  lastDonation: string;
+  totalDonations: number;
+}
+
 const Profile = () => {
   // Demo data
-  const user = {
+  const user: User = {
     name: "John Doe",
     email: "john.doe@example.com",
     avatarUrl: "https://github.com/shadcn.png",
@@ -20,7 +32,8 @@ const Profile = () => {
     totalDonations: 7,
   };
 
-  const bloodTypeColors = {
+  // Add proper type annotations to solve the TS error
+  const bloodTypeColors: Record<BloodType, string> = {
     "A+": "bg-red-100 text-red-800",
     "B-": "bg-blue-100 text-blue-800",
     "O+": "bg-orange-100 text-orange-800",

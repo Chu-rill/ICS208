@@ -8,8 +8,18 @@ import {
 import { Badge } from "../components/ui/badge";
 import { Button } from "../components/ui/button";
 
+// Define types for the status values
+type InventoryStatus = "In Stock" | "Low Stock" | "Out of Stock";
+
+interface InventoryItem {
+  id: number;
+  name: string;
+  quantity: number;
+  status: InventoryStatus;
+}
+
 const Inventory = () => {
-  const inventoryItems = [
+  const inventoryItems: InventoryItem[] = [
     {
       id: 1,
       name: "Blood Bag Type A+",
@@ -36,7 +46,8 @@ const Inventory = () => {
     },
   ];
 
-  const statusColors = {
+  // Add proper type annotations to solve the TS error
+  const statusColors: Record<InventoryStatus, string> = {
     "In Stock": "bg-green-100 text-green-800",
     "Low Stock": "bg-amber-100 text-amber-800",
     "Out of Stock": "bg-red-100 text-red-800",

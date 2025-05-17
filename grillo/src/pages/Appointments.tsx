@@ -1,3 +1,6 @@
+// We need to fix the TypeScript errors in all these files by adding proper type signatures
+
+// For Appointments.tsx
 import {
   Card,
   CardContent,
@@ -9,8 +12,21 @@ import { Calendar } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Badge } from "../components/ui/badge";
 
+// Define types for the bloodType and status values
+type BloodType = "A+" | "B-" | "O+";
+type AppointmentStatus = "Confirmed" | "Pending";
+
+interface Appointment {
+  id: number;
+  name: string;
+  date: string;
+  time: string;
+  bloodType: BloodType;
+  status: AppointmentStatus;
+}
+
 const Appointments = () => {
-  const appointments = [
+  const appointments: Appointment[] = [
     {
       id: 1,
       name: "John Doe",
@@ -37,12 +53,13 @@ const Appointments = () => {
     },
   ];
 
-  const statusColors = {
+  // Add proper type annotations to solve the TS error
+  const statusColors: Record<AppointmentStatus, string> = {
     Confirmed: "bg-green-100 text-green-800",
     Pending: "bg-amber-100 text-amber-800",
   };
 
-  const bloodTypeColors = {
+  const bloodTypeColors: Record<BloodType, string> = {
     "A+": "bg-red-100 text-red-800",
     "B-": "bg-blue-100 text-blue-800",
     "O+": "bg-orange-100 text-orange-800",
@@ -72,7 +89,7 @@ const Appointments = () => {
                     </p>
                     <Badge
                       className={`mt-1 ${
-                        bloodTypeColors[appointment.bloodType] || ""
+                        bloodTypeColors[appointment.bloodType]
                       }`}
                     >
                       {appointment.bloodType}

@@ -9,8 +9,21 @@ import { Badge } from "../components/ui/badge";
 import { Button } from "../components/ui/button";
 import { Calendar } from "lucide-react";
 
+// Define types for the bloodType and status values
+type BloodType = "A+" | "B-" | "O+";
+type DonationStatus = "Completed" | "Pending";
+
+interface Donation {
+  id: number;
+  donorName: string;
+  bloodType: BloodType;
+  date: string;
+  quantity: string;
+  status: DonationStatus;
+}
+
 const Donations = () => {
-  const donationData = [
+  const donationData: Donation[] = [
     {
       id: 1,
       donorName: "Alice Smith",
@@ -37,12 +50,13 @@ const Donations = () => {
     },
   ];
 
-  const statusColors = {
+  // Add proper type annotations to solve the TS error
+  const statusColors: Record<DonationStatus, string> = {
     Completed: "bg-green-100 text-green-800",
     Pending: "bg-amber-100 text-amber-800",
   };
 
-  const bloodTypeColors = {
+  const bloodTypeColors: Record<BloodType, string> = {
     "A+": "bg-red-100 text-red-800",
     "B-": "bg-blue-100 text-blue-800",
     "O+": "bg-orange-100 text-orange-800",
@@ -68,9 +82,7 @@ const Donations = () => {
                     </h2>
                     <p className="text-muted-foreground">
                       Blood Type:{" "}
-                      <Badge
-                        className={bloodTypeColors[donation.bloodType] || ""}
-                      >
+                      <Badge className={bloodTypeColors[donation.bloodType]}>
                         {donation.bloodType}
                       </Badge>
                     </p>

@@ -9,9 +9,22 @@ import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 import { Button } from "../components/ui/button";
 import { Badge } from "../components/ui/badge";
 
+// Define types for the role and status values
+type UserRole = "Donor" | "Recipient" | "Admin";
+type UserStatus = "Active" | "Inactive";
+
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  avatarUrl: string;
+  role: UserRole;
+  status: UserStatus;
+}
+
 const Users = () => {
   // Demo data for users
-  const users = [
+  const users: User[] = [
     {
       id: 1,
       name: "Alice Smith",
@@ -38,13 +51,14 @@ const Users = () => {
     },
   ];
 
-  const roleColors = {
+  // Add proper type annotations to solve the TS error
+  const roleColors: Record<UserRole, string> = {
     Donor: "bg-green-100 text-green-800",
     Recipient: "bg-blue-100 text-blue-800",
     Admin: "bg-orange-100 text-orange-800",
   };
 
-  const statusColors = {
+  const statusColors: Record<UserStatus, string> = {
     Active: "bg-green-100 text-green-800",
     Inactive: "bg-red-100 text-red-800",
   };
