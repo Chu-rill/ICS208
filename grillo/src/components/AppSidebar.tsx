@@ -29,27 +29,27 @@ export function AppSidebar() {
     {
       title: "Dashboard",
       icon: Home,
-      path: "/",
+      path: "/dashboard",
     },
     {
       title: "Donations",
       icon: Heart,
-      path: "/donations",
+      path: "/dashboard/donations",
     },
     {
       title: "Appointments",
       icon: Calendar,
-      path: "/appointments",
+      path: "/dashboard/appointments",
     },
     {
       title: "Inventory",
       icon: Activity,
-      path: "/inventory",
+      path: "/dashboard/inventory",
     },
     {
       title: "Analytics",
       icon: BarChart4,
-      path: "/analytics",
+      path: "/dashboard/analytics",
     },
   ];
 
@@ -57,12 +57,12 @@ export function AppSidebar() {
     {
       title: "Users",
       icon: Users,
-      path: "/users",
+      path: "/dashboard/users",
     },
     {
       title: "Settings",
       icon: Settings,
-      path: "/settings",
+      path: "/dashboard/settings",
     },
   ];
 
@@ -118,7 +118,7 @@ export function AppSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <Link to="/profile">
+              <Link to="/dashboard/profile">
                 <UserRound className="w-4 h-4" />
                 <span>Profile</span>
               </Link>

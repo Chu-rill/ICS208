@@ -1,195 +1,179 @@
-import { User, Student, Supervisor, Coordinator, Admin } from '../types/user';
+import { User } from '../types/auth';
 
-// Demo students
-const students: Student[] = [
+export const users: User[] = [
+  // Students
   {
-    id: 's1',
-    name: 'Chidimma Okonkwo',
+    id: '1',
+    email: 'student1@example.com',
+    firstName: 'Adebayo',
+    lastName: 'Johnson',
+    role: 'student',
+    avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
+    department: 'Computer Science',
+    institution: 'University of Lagos',
+    phoneNumber: '+234 801 234 5678',
+    lastLogin: '2023-04-15T08:30:00Z'
+  },
+  {
+    id: '2',
+    email: 'student2@example.com',
+    firstName: 'Chioma',
+    lastName: 'Okafor',
+    role: 'student',
+    avatar: 'https://randomuser.me/api/portraits/women/2.jpg',
+    department: 'Electrical Engineering',
+    institution: 'University of Nigeria',
+    phoneNumber: '+234 802 345 6789',
+    lastLogin: '2023-04-14T15:45:00Z'
+  },
+  {
+    id: '3',
+    email: 'student3@example.com',
+    firstName: 'Emeka',
+    lastName: 'Nwosu',
+    role: 'student',
+    avatar: 'https://randomuser.me/api/portraits/men/3.jpg',
+    department: 'Mechanical Engineering',
+    institution: 'Ahmadu Bello University',
+    phoneNumber: '+234 803 456 7890',
+    lastLogin: '2023-04-13T12:15:00Z'
+  },
+  {
+    id: '4',
+    email: 'student4@example.com',
+    firstName: 'Fatima',
+    lastName: 'Ibrahim',
+    role: 'student',
+    avatar: 'https://randomuser.me/api/portraits/women/4.jpg',
+    department: 'Chemical Engineering',
+    institution: 'University of Ibadan',
+    phoneNumber: '+234 804 567 8901',
+    lastLogin: '2023-04-16T09:20:00Z'
+  },
+  
+  // Academic Supervisors
+  {
+    id: '5',
+    email: 'acad_supervisor1@example.com',
+    firstName: 'Dr. Samuel',
+    lastName: 'Adeyemi',
+    role: 'academic_supervisor',
+    avatar: 'https://randomuser.me/api/portraits/men/5.jpg',
+    department: 'Computer Science',
+    institution: 'University of Lagos',
+    position: 'Senior Lecturer',
+    phoneNumber: '+234 805 678 9012',
+    lastLogin: '2023-04-15T10:30:00Z'
+  },
+  {
+    id: '6',
+    email: 'acad_supervisor2@example.com',
+    firstName: 'Dr. Ngozi',
+    lastName: 'Eze',
+    role: 'academic_supervisor',
+    avatar: 'https://randomuser.me/api/portraits/women/6.jpg',
+    department: 'Electrical Engineering',
+    institution: 'University of Nigeria',
+    position: 'Associate Professor',
+    phoneNumber: '+234 806 789 0123',
+    lastLogin: '2023-04-14T11:45:00Z'
+  },
+  
+  // Industry Supervisors
+  {
+    id: '7',
+    email: 'ind_supervisor1@example.com',
+    firstName: 'Oluwaseun',
+    lastName: 'Adeleke',
+    role: 'industry_supervisor',
+    avatar: 'https://randomuser.me/api/portraits/men/7.jpg',
+    company: 'TechNigeria Ltd',
+    position: 'Senior Software Engineer',
+    phoneNumber: '+234 807 890 1234',
+    lastLogin: '2023-04-15T14:20:00Z'
+  },
+  {
+    id: '8',
+    email: 'ind_supervisor2@example.com',
+    firstName: 'Amina',
+    lastName: 'Mohammed',
+    role: 'industry_supervisor',
+    avatar: 'https://randomuser.me/api/portraits/women/8.jpg',
+    company: 'Nigerian Engineering Solutions',
+    position: 'Project Manager',
+    phoneNumber: '+234 808 901 2345',
+    lastLogin: '2023-04-13T16:10:00Z'
+  },
+  
+  // Coordinator
+  {
+    id: '9',
+    email: 'coordinator@example.com',
+    firstName: 'Prof. Chukwudi',
+    lastName: 'Okonkwo',
+    role: 'coordinator',
+    avatar: 'https://randomuser.me/api/portraits/men/9.jpg',
+    department: 'SIWES Coordination Office',
+    institution: 'University of Lagos',
+    position: 'SIWES Coordinator',
+    phoneNumber: '+234 809 012 3456',
+    lastLogin: '2023-04-16T08:45:00Z'
+  },
+  
+  // Administrator
+  {
+    id: '10',
+    email: 'admin@example.com',
+    firstName: 'Aisha',
+    lastName: 'Bello',
+    role: 'administrator',
+    avatar: 'https://randomuser.me/api/portraits/women/10.jpg',
+    department: 'Administration',
+    institution: 'Federal SIWES Management Board',
+    position: 'System Administrator',
+    phoneNumber: '+234 810 123 4567',
+    lastLogin: '2023-04-16T07:30:00Z'
+  }
+];
+
+// Demo credentials for different roles
+export const demoCredentials = [
+  {
+    role: 'Student',
     email: 'student1@example.com',
     password: 'password123',
-    role: 'student',
-    avatar: 'https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=150',
-    matricNumber: 'UNN/2018/00123',
-    level: '400',
-    department: 'Computer Science',
-    program: 'BSc Computer Science',
-    placementStatus: 'placed',
-    company: 'TechNigeria Ltd',
-    startDate: '2023-06-01',
-    endDate: '2023-11-30',
-    totalDaysLogged: 45,
-    assessmentScore: 78,
-    dateRegistered: '2022-09-01',
-    lastLogin: '2023-09-25',
-    phone: '08012345678',
+    name: 'Adebayo Johnson'
   },
   {
-    id: 's2',
-    name: 'Oluwaseun Adeyemi',
-    email: 'student2@example.com',
+    role: 'Academic Supervisor',
+    email: 'acad_supervisor1@example.com',
     password: 'password123',
-    role: 'student',
-    avatar: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=150',
-    matricNumber: 'UNN/2018/00456',
-    level: '400',
-    department: 'Mechanical Engineering',
-    program: 'BEng Mechanical Engineering',
-    placementStatus: 'placed',
-    company: 'Lagos Engineering Works',
-    startDate: '2023-06-15',
-    endDate: '2023-12-15',
-    totalDaysLogged: 38,
-    assessmentScore: 82,
-    dateRegistered: '2022-09-01',
-    lastLogin: '2023-09-24',
-    phone: '08023456789',
+    name: 'Dr. Samuel Adeyemi'
   },
   {
-    id: 's3',
-    name: 'Amina Ibrahim',
-    email: 'student3@example.com',
+    role: 'Industry Supervisor',
+    email: 'ind_supervisor1@example.com',
     password: 'password123',
-    role: 'student',
-    avatar: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150',
-    matricNumber: 'UNN/2019/00789',
-    level: '300',
-    department: 'Electrical Engineering',
-    program: 'BEng Electrical Engineering',
-    placementStatus: 'seeking',
-    totalDaysLogged: 0,
-    dateRegistered: '2022-09-01',
-    lastLogin: '2023-09-20',
-    phone: '08034567890',
+    name: 'Oluwaseun Adeleke'
   },
   {
-    id: 's4',
-    name: 'Emeka Eze',
-    email: 'student4@example.com',
-    password: 'password123',
-    role: 'student',
-    avatar: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150',
-    matricNumber: 'UNN/2019/01012',
-    level: '300',
-    department: 'Computer Science',
-    program: 'BSc Computer Science',
-    placementStatus: 'placed',
-    company: 'DataTech Solutions',
-    startDate: '2023-07-01',
-    endDate: '2024-01-01',
-    totalDaysLogged: 20,
-    assessmentScore: 65,
-    dateRegistered: '2022-09-01',
-    lastLogin: '2023-09-22',
-    phone: '08045678901',
-  },
-];
-
-// Demo supervisors
-const supervisors: Supervisor[] = [
-  {
-    id: 'as1',
-    name: 'Dr. Nneka Okoli',
-    email: 'academic1@example.com',
-    password: 'password123',
-    role: 'academic-supervisor',
-    avatar: 'https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=150',
-    department: 'Computer Science',
-    position: 'Senior Lecturer',
-    assignedStudents: ['s1', 's4'],
-    totalVisits: 5,
-    lastVisitDate: '2023-09-10',
-    dateRegistered: '2021-08-15',
-    lastLogin: '2023-09-23',
-    phone: '08056789012',
-  },
-  {
-    id: 'as2',
-    name: 'Prof. Olumide Adebayo',
-    email: 'academic2@example.com',
-    password: 'password123',
-    role: 'academic-supervisor',
-    avatar: 'https://images.pexels.com/photos/5393594/pexels-photo-5393594.jpeg?auto=compress&cs=tinysrgb&w=150',
-    department: 'Mechanical Engineering',
-    position: 'Professor',
-    assignedStudents: ['s2'],
-    totalVisits: 3,
-    lastVisitDate: '2023-09-05',
-    dateRegistered: '2021-08-15',
-    lastLogin: '2023-09-21',
-    phone: '08067890123',
-  },
-  {
-    id: 'is1',
-    name: 'Engr. Abdul Yusuf',
-    email: 'industry1@example.com',
-    password: 'password123',
-    role: 'industry-supervisor',
-    avatar: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150',
-    company: 'TechNigeria Ltd',
-    position: 'Senior Developer',
-    assignedStudents: ['s1'],
-    totalVisits: 0,
-    dateRegistered: '2021-09-01',
-    lastLogin: '2023-09-24',
-    phone: '08078901234',
-  },
-  {
-    id: 'is2',
-    name: 'Engr. Blessing Okafor',
-    email: 'industry2@example.com',
-    password: 'password123',
-    role: 'industry-supervisor',
-    avatar: 'https://images.pexels.com/photos/1587009/pexels-photo-1587009.jpeg?auto=compress&cs=tinysrgb&w=150',
-    company: 'Lagos Engineering Works',
-    position: 'Department Manager',
-    assignedStudents: ['s2'],
-    totalVisits: 0,
-    dateRegistered: '2021-09-01',
-    lastLogin: '2023-09-20',
-    phone: '08089012345',
-  },
-];
-
-// Demo coordinator
-const coordinators: Coordinator[] = [
-  {
-    id: 'c1',
-    name: 'Dr. Tunde Bakare',
+    role: 'Coordinator',
     email: 'coordinator@example.com',
     password: 'password123',
-    role: 'coordinator',
-    avatar: 'https://images.pexels.com/photos/5792641/pexels-photo-5792641.jpeg?auto=compress&cs=tinysrgb&w=150',
-    department: 'SIWES Coordination Office',
-    totalStudents: 143,
-    totalSupervisors: 12,
-    totalOrganizations: 27,
-    dateRegistered: '2020-01-15',
-    lastLogin: '2023-09-25',
-    phone: '08090123456',
+    name: 'Prof. Chukwudi Okonkwo'
   },
-];
-
-// Demo admin
-const admins: Admin[] = [
   {
-    id: 'a1',
-    name: 'System Administrator',
+    role: 'Administrator',
     email: 'admin@example.com',
     password: 'password123',
-    role: 'admin',
-    avatar: 'https://images.pexels.com/photos/3778212/pexels-photo-3778212.jpeg?auto=compress&cs=tinysrgb&w=150',
-    accessLevel: 'full',
-    lastAction: 'Updated system settings',
-    dateRegistered: '2020-01-01',
-    lastLogin: '2023-09-25',
-    phone: '08001234567',
-  },
+    name: 'Aisha Bello'
+  }
 ];
 
-// Combine all users for authentication
-export const demoUsers: User[] = [
-  ...students,
-  ...supervisors,
-  ...coordinators,
-  ...admins,
-];
+export const getUserByEmail = (email: string): User | undefined => {
+  return users.find(user => user.email === email);
+};
+
+export const getUserById = (id: string): User | undefined => {
+  return users.find(user => user.id === id);
+};
